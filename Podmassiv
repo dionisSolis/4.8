@@ -1,0 +1,43 @@
+using System;
+namespace maximum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> array = new List<int> { };
+            Random random = new Random();
+            int lengthOfArray;
+            int digitTheMostRepeat = 0, timesOfRepeat = 0, countOfNowRepeat = 0;
+
+            Console.Write("Введите желаемую длину массива: ");
+            lengthOfArray = int.Parse(Console.ReadLine());
+            Console.Write("\nМассив: ");
+
+            for (int i = 0; i < lengthOfArray; i++)
+            {
+                array.Add(random.Next(1, 3));
+                Console.Write($"{array[i]} ");
+            }
+
+            for (int i = 0; i < lengthOfArray - 1; i++)
+            {
+                if (array[i] == array[i+1])
+                {
+                    countOfNowRepeat += 1;
+                    if (countOfNowRepeat + 1 >= timesOfRepeat)
+                    {
+                        timesOfRepeat = countOfNowRepeat + 1;
+                        digitTheMostRepeat = array[i];
+                    }
+                }
+                else
+                {
+                    countOfNowRepeat = 0;
+                }
+            }
+
+            Console.WriteLine($"\n\nБольше всего подряд встречается число: {digitTheMostRepeat},  в количестве {timesOfRepeat} шт.");
+        }
+    }
+}
