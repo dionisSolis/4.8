@@ -22,9 +22,11 @@ namespace maximum
 
             for (int i = 0; i < lengthOfArray - 1; i++)
             {
+            
                 if (array[i] == array[i+1])
                 {
                     countOfNowRepeat += 1;
+                    
                     if (countOfNowRepeat + 1 >= timesOfRepeat)
                     {
                         timesOfRepeat = countOfNowRepeat + 1;
